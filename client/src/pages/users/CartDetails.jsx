@@ -15,6 +15,13 @@ const CartDetails = () => {
       setItems(data.data);
     }
   };
+
+  const getTotal =()=>{
+    //[1,2,3,4]
+    //[{product: {sellingPrice: 1000}, quantity: 1}]
+    return items.reduce((a, b)=> a + (b.product.sellingPrice * b.quantity), 0)
+    
+  }
   useEffect(() => {
     getCartItems();
   }, []);
@@ -51,7 +58,7 @@ const CartDetails = () => {
         })}
 
         <div></div>
-        <p style={{ textAlign: 'center' }}>Total Ksh. 40000</p>
+        <p style={{ textAlign: 'center' }}>Total Ksh.{getTotal().toLocaleString()}</p>
 
         <CheckoutForm />
       </div>
