@@ -21,10 +21,7 @@ const salesSchema= new Schema({
         type: Number,
         required: [true, 'please provide selling price']
     },
-    discount: {
-        type: Number,
-        required: [true, 'please provide discount']
-    },
+   
 
 });
 
