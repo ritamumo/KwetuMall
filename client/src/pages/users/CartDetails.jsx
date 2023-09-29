@@ -22,9 +22,22 @@ const CartDetails = () => {
     return items.reduce((a, b)=> a + (b.product.sellingPrice * b.quantity), 0)
     
   }
+  const removeFromCart = async(id)=>{
+    const{ data } = await authApi.post('/remove-cart-item', {productId: id})
+    console.log(data)
+    // to do: confirm before delete
+    if (data.message === 'item deleted from cart'){
+      const filteredItems = items.filter((item)=> item.product._id !==id);
+      setItems(filteredItems)
+    }
+  }
+
+
   useEffect(() => {
     getCartItems();
   }, []);
+
+
   return (
     <Container>
       <nav>
@@ -41,7 +54,7 @@ const CartDetails = () => {
                   <p style={{ margin: 0 }}>{item.quantity}</p>
                   <p style={{ margin: 0 }}>{item.product.sellingPrice}</p>
                   <p style={{ margin: 0 }}>
-                    <TrashCan />
+                    <TrashCan onClick={()=>removeFromCart(item.product._id)}/>
                   </p>
                 </li>
 

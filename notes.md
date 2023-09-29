@@ -20,3 +20,12 @@
     > git add .
     > git commit -m 'message related to the changes'
     > git push origin master
+
+    https://www.npmjs.com/package/dotenv - adding a .env file to protect your data
+
+import reactImage from './assets/react.svg';
+<img src={reactImage}/>
+
+***Figma
+
+eatwith.com*** idea for project
