@@ -29,3 +29,5 @@ import reactImage from './assets/react.svg';
 ***Figma
 
 eatwith.com*** idea for project
+
+https://www.npmjs.com
